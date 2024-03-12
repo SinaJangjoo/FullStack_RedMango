@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20240312014800_ChangeMenuItemModelFieldImage.Designer.cs" />
+    <Compile Remove="Migrations\20240312020240_ChangeBackMenuItemModelFieldImage.Designer.cs" />
+    <Compile Remove="Migrations\20240312021237_addFluentAPIData.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Azure.Storage.Blobs" Version="12.19.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.14" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.14" />
