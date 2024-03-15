@@ -12,15 +12,15 @@ using RedMango_API.Data;
 namespace RedMango_API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231121205736_addShoppingCartandCartItemToDb")]
-    partial class addShoppingCartandCartItemToDb
+    [Migration("20240315005724_RestoreDatabase")]
+    partial class RestoreDatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.13")
+                .HasAnnotation("ProductVersion", "7.0.14")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -290,7 +290,7 @@ namespace RedMango_API.Migrations
                             Id = 1,
                             Category = "Appetizer",
                             Description = "Fusc tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
-                            Image = "https://redmangoimages1.blob.core.windows.net/redmango/spring roll.jpg",
+                            Image = "https://i.ibb.co/VD0mnh6/spring-roll.jpg",
                             Name = "Spring Roll",
                             Price = 7.9900000000000002,
                             SpecialTag = ""
@@ -300,7 +300,7 @@ namespace RedMango_API.Migrations
                             Id = 2,
                             Category = "Appetizer",
                             Description = "Fusc tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
-                            Image = "https://redmangoimages1.blob.core.windows.net/redmango/idli.jpg",
+                            Image = "https://i.ibb.co/p1mGFc7/idli.jpg",
                             Name = "Idli",
                             Price = 8.9900000000000002,
                             SpecialTag = ""
@@ -310,7 +310,7 @@ namespace RedMango_API.Migrations
                             Id = 3,
                             Category = "Appetizer",
                             Description = "Fusc tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
-                            Image = "https://redmangoimages1.blob.core.windows.net/redmango/pani puri.jpg",
+                            Image = "https://i.ibb.co/w0GFSv4/pani-puri.jpg",
                             Name = "Pani Puri",
                             Price = 8.9900000000000002,
                             SpecialTag = "Best Seller"
@@ -320,7 +320,7 @@ namespace RedMango_API.Migrations
                             Id = 4,
                             Category = "Entrée",
                             Description = "Fusc tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
-                            Image = "https://redmangoimages1.blob.core.windows.net/redmango/hakka noodles.jpg",
+                            Image = "https://i.ibb.co/f9DTQJG/hakka-noodles.jpg",
                             Name = "Hakka Noodles",
                             Price = 10.99,
                             SpecialTag = ""
@@ -330,7 +330,7 @@ namespace RedMango_API.Migrations
                             Id = 5,
                             Category = "Entrée",
                             Description = "Fusc tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
-                            Image = "https://redmangoimages1.blob.core.windows.net/redmango/malai kofta.jpg",
+                            Image = "https://i.ibb.co/8KT8FMw/malai-kofta.jpg",
                             Name = "Malai Kofta",
                             Price = 12.99,
                             SpecialTag = "Top Rated"
@@ -340,7 +340,7 @@ namespace RedMango_API.Migrations
                             Id = 6,
                             Category = "Entrée",
                             Description = "Fusc tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
-                            Image = "https://redmangoimages1.blob.core.windows.net/redmango/paneer pizza.jpg",
+                            Image = "https://i.ibb.co/RBFPg7X/paneer-pizza.jpg",
                             Name = "Paneer Pizza",
                             Price = 11.99,
                             SpecialTag = ""
@@ -350,7 +350,7 @@ namespace RedMango_API.Migrations
                             Id = 7,
                             Category = "Entrée",
                             Description = "Fusc tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
-                            Image = "https://redmangoimages1.blob.core.windows.net/redmango/paneer tikka.jpg",
+                            Image = "https://i.ibb.co/MsTsgw7/paneer-tikka.jpg",
                             Name = "Paneer Tikka",
                             Price = 13.99,
                             SpecialTag = "Chef's Special"
@@ -360,7 +360,7 @@ namespace RedMango_API.Migrations
                             Id = 8,
                             Category = "Dessert",
                             Description = "Fusc tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
-                            Image = "https://redmangoimages1.blob.core.windows.net/redmango/carrot love.jpg",
+                            Image = "https://i.ibb.co/7QxL1r8/carrot-love.jpg",
                             Name = "Carrot Love",
                             Price = 4.9900000000000002,
                             SpecialTag = ""
@@ -370,7 +370,7 @@ namespace RedMango_API.Migrations
                             Id = 9,
                             Category = "Dessert",
                             Description = "Fusc tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
-                            Image = "https://redmangoimages1.blob.core.windows.net/redmango/rasmalai.jpg",
+                            Image = "https://i.ibb.co/w6KXHy4/rasmalai.jpg",
                             Name = "Rasmalai",
                             Price = 4.9900000000000002,
                             SpecialTag = "Chef's Special"
@@ -380,11 +380,89 @@ namespace RedMango_API.Migrations
                             Id = 10,
                             Category = "Dessert",
                             Description = "Fusc tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
-                            Image = "https://redmangoimages1.blob.core.windows.net/redmango/sweet rolls.jpg",
+                            Image = "https://i.ibb.co/LZLKkZL/sweet-rolls.jpg",
                             Name = "Sweet Rolls",
                             Price = 3.9900000000000002,
                             SpecialTag = "Top Rated"
                         });
+                });
+
+            modelBuilder.Entity("RedMango_API.Models.OrderDetails", b =>
+                {
+                    b.Property<int>("OrderDetailId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderDetailId"));
+
+                    b.Property<string>("ItemName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MenuItemId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OrderHeaderId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("OrderDetailId");
+
+                    b.HasIndex("MenuItemId");
+
+                    b.HasIndex("OrderHeaderId");
+
+                    b.ToTable("OrderDetails");
+                });
+
+            modelBuilder.Entity("RedMango_API.Models.OrderHeader", b =>
+                {
+                    b.Property<int>("OrderHeaderId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderHeaderId"));
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("OredrTotal")
+                        .HasColumnType("float");
+
+                    b.Property<string>("PickupEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PickupName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PickupPhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StripePaymentIntentID")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TotalItems")
+                        .HasColumnType("int");
+
+                    b.HasKey("OrderHeaderId");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.ToTable("OrderHeaders");
                 });
 
             modelBuilder.Entity("RedMango_API.Models.ShoppingCart", b =>
@@ -394,12 +472,6 @@ namespace RedMango_API.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("ClientSecret")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("StripePaymentIntentId")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(max)");
@@ -475,6 +547,37 @@ namespace RedMango_API.Migrations
                         .IsRequired();
 
                     b.Navigation("MenuItem");
+                });
+
+            modelBuilder.Entity("RedMango_API.Models.OrderDetails", b =>
+                {
+                    b.HasOne("RedMango_API.Models.MenuItem", "MenuItem")
+                        .WithMany()
+                        .HasForeignKey("MenuItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RedMango_API.Models.OrderHeader", null)
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("OrderHeaderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MenuItem");
+                });
+
+            modelBuilder.Entity("RedMango_API.Models.OrderHeader", b =>
+                {
+                    b.HasOne("RedMango_API.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("RedMango_API.Models.OrderHeader", b =>
+                {
+                    b.Navigation("OrderDetails");
                 });
 
             modelBuilder.Entity("RedMango_API.Models.ShoppingCart", b =>
