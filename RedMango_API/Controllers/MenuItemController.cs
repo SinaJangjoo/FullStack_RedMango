@@ -74,19 +74,18 @@ namespace RedMango_API.Controllers
 						Category = menuItemCreateDTO.Category,
 						Description = menuItemCreateDTO.Description,
 						SpecialTag = menuItemCreateDTO.SpecialTag,
-					    Image = menuItemCreateDTO.File.ToString(),
 					};
-					//if (menuItemCreateDTO.File != null)
-					//{
-					//	string extension = Path.GetExtension(menuItemCreateDTO.File.FileName).ToLower();  //It will gives us the FilemName of type (IFormFile)
-					//	if (extension == ".jpg" || extension == ".jpeg" || extension == ".png")
-					//	{
-					//		byte[] buffer = new byte[menuItemCreateDTO.File.Length];
-					//		menuItemCreateDTO.File.OpenReadStream().Read(buffer, 0, buffer.Length);
-					//		menuItemToCreate.Image = buffer.ToString();
+					if (menuItemCreateDTO.File != null)
+					{
+						string extension = Path.GetExtension(menuItemCreateDTO.File.FileName).ToLower();  //It will gives us the FilemName of type (IFormFile)
+						if (extension == ".jpg" || extension == ".jpeg" || extension == ".png")
+						{
+							byte[] buffer = new byte[menuItemCreateDTO.File.Length];
+							menuItemCreateDTO.File.OpenReadStream().Read(buffer, 0, buffer.Length);
+							menuItemToCreate.Image = buffer;
 
-					//	}
-					//}
+						}
+					}
 
 					_db.MenuItems.Add(menuItemToCreate);
 					_db.SaveChanges();
@@ -139,36 +138,38 @@ namespace RedMango_API.Controllers
 					menuItemFromDB.Description = menuItemUpdateDTO.Description;
 					menuItemFromDB.Category = menuItemUpdateDTO.Category;
 					menuItemFromDB.SpecialTag = menuItemUpdateDTO.SpecialTag;
-					//if (menuItemUpdateDTO.File != null && menuItemUpdateDTO.File.Length > 0)
-					//{
-					//	//string fileName = $"{Guid.NewGuid()}{Path.GetExtension(menuItemUpdateDTO.File.FileName)}";  //It will get us a new file name
-					//	//await _blobService.DeleteBlob(menuItemFromDB.Image.Split('/').Last(), SD.SD_Storage_Container);  // It will delete the last image which we uploaded before and make that empty to replace the new one!
-						menuItemFromDB.Image = menuItemUpdateDTO.File.ToString();  // After we deleted the last image before, Now we upload our new image
-					//}
-					//if (menuItemUpdateDTO.File != null)
-					//{
-					//	string extension = Path.GetExtension(menuItemUpdateDTO.File.FileName).ToLower();  //It will gives us the FilemName of type (IFormFile)
-					//	if (extension == ".jpg" || extension == ".jpeg" || extension == ".png")
-					//	{
-					//		byte[] buffer = new byte[menuItemUpdateDTO.File.Length];
-					//		menuItemUpdateDTO.File.OpenReadStream().Read(buffer, 0, buffer.Length);
-					//		menuItemFromDB.Image = buffer.ToString();
+					if (menuItemUpdateDTO.File != null && menuItemUpdateDTO.File.Length > 0)
+					{
+						//string fileName = $"{Guid.NewGuid()}{Path.GetExtension(menuItemUpdateDTO.File.FileName)}";  //It will get us a new file name
+						//	//await _blobService.DeleteBlob(menuItemFromDB.Image.Split('/').Last(), SD.SD_Storage_Container);  // It will delete the last image which we uploaded before and make that empty to replace the new one!
+						//menuItemFromDB.Image = menuItemUpdateDTO.File.ToString();  // After we deleted the last image before, Now we upload our new image
+						//}
+						if (menuItemUpdateDTO.File != null)
+						{
+							string extension = Path.GetExtension(menuItemUpdateDTO.File.FileName).ToLower();  //It will gives us the FilemName of type (IFormFile)
+							if (extension == ".jpg" || extension == ".jpeg" || extension == ".png")
+							{
+								byte[] buffer = new byte[menuItemUpdateDTO.File.Length];
+								menuItemUpdateDTO.File.OpenReadStream().Read(buffer, 0, buffer.Length);
+								menuItemFromDB.Image = buffer;
 
-					//	}
-					//}
+							}
+						}
 
-					_db.MenuItems.Update(menuItemFromDB);
-					_db.SaveChanges();
-					_response.StatusCode = HttpStatusCode.NoContent;
-					return Ok(_response);
-				}
-				else
-				{
-					_response.StatusCode = HttpStatusCode.NotFound;
-					_response.IsSuccess = false;
-					return NotFound();
+						_db.MenuItems.Update(menuItemFromDB);
+						_db.SaveChanges();
+						_response.StatusCode = HttpStatusCode.NoContent;
+						return Ok(_response);
+					}
+					else
+					{
+						_response.StatusCode = HttpStatusCode.NotFound;
+						_response.IsSuccess = false;
+						return NotFound();
+					};
 				}
 			}
+
 			catch (Exception ex)
 			{
 				_response.IsSuccess = false;

@@ -14,6 +14,6 @@ namespace RedMango_API.Models
         [Range(1, int.MaxValue)]
         public double Price { get; set; }
         [Required]
-        public string Image { get; set; }
+        public byte[] Image { get; set; }
     }
 }
