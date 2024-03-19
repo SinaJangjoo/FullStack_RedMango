@@ -12,8 +12,8 @@ using RedMango_API.Data;
 namespace RedMango_API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240316164514_ChangeMenuItemModelProperty")]
-    partial class ChangeMenuItemModelProperty
+    [Migration("20240319191803_ChangeBothTypeofDtoAndModelFieldImage")]
+    partial class ChangeBothTypeofDtoAndModelFieldImage
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -266,9 +266,9 @@ namespace RedMango_API.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("Image")
+                    b.Property<string>("Image")
                         .IsRequired()
-                        .HasColumnType("varbinary(max)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -283,6 +283,108 @@ namespace RedMango_API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("MenuItems");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Category = "Appetizer",
+                            Description = "Fusc tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
+                            Image = "https://i.ibb.co/VD0mnh6/spring-roll.jpg",
+                            Name = "Spring Roll",
+                            Price = 7.9900000000000002,
+                            SpecialTag = ""
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Category = "Appetizer",
+                            Description = "Fusc tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
+                            Image = "https://i.ibb.co/p1mGFc7/idli.jpg",
+                            Name = "Idli",
+                            Price = 8.9900000000000002,
+                            SpecialTag = ""
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Category = "Appetizer",
+                            Description = "Fusc tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
+                            Image = "https://i.ibb.co/w0GFSv4/pani-puri.jpg",
+                            Name = "Pani Puri",
+                            Price = 8.9900000000000002,
+                            SpecialTag = "Best Seller"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Category = "Entrée",
+                            Description = "Fusc tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
+                            Image = "https://i.ibb.co/f9DTQJG/hakka-noodles.jpg",
+                            Name = "Hakka Noodles",
+                            Price = 10.99,
+                            SpecialTag = ""
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Category = "Entrée",
+                            Description = "Fusc tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
+                            Image = "https://i.ibb.co/8KT8FMw/malai-kofta.jpg",
+                            Name = "Malai Kofta",
+                            Price = 12.99,
+                            SpecialTag = "Top Rated"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Category = "Entrée",
+                            Description = "Fusc tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
+                            Image = "https://i.ibb.co/RBFPg7X/paneer-pizza.jpg",
+                            Name = "Paneer Pizza",
+                            Price = 11.99,
+                            SpecialTag = ""
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Category = "Entrée",
+                            Description = "Fusc tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
+                            Image = "https://i.ibb.co/MsTsgw7/paneer-tikka.jpg",
+                            Name = "Paneer Tikka",
+                            Price = 13.99,
+                            SpecialTag = "Chef's Special"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Category = "Dessert",
+                            Description = "Fusc tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
+                            Image = "https://i.ibb.co/7QxL1r8/carrot-love.jpg",
+                            Name = "Carrot Love",
+                            Price = 4.9900000000000002,
+                            SpecialTag = ""
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Category = "Dessert",
+                            Description = "Fusc tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
+                            Image = "https://i.ibb.co/w6KXHy4/rasmalai.jpg",
+                            Name = "Rasmalai",
+                            Price = 4.9900000000000002,
+                            SpecialTag = "Chef's Special"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Category = "Dessert",
+                            Description = "Fusc tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.",
+                            Image = "https://i.ibb.co/LZLKkZL/sweet-rolls.jpg",
+                            Name = "Sweet Rolls",
+                            Price = 3.9900000000000002,
+                            SpecialTag = "Top Rated"
+                        });
                 });
 
             modelBuilder.Entity("RedMango_API.Models.OrderDetails", b =>

@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace RedMango_API.Migrations
 {
     /// <inheritdoc />
-    public partial class ChangeMenuItemModelProperty : Migration
+    public partial class ChangeBothTypeofDtoAndModelFieldImage : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -62,7 +64,7 @@ namespace RedMango_API.Migrations
                     SpecialTag = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Category = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<double>(type: "float", nullable: false),
-                    Image = table.Column<byte[]>(type: "varbinary(max)", nullable: false)
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -268,6 +270,23 @@ namespace RedMango_API.Migrations
                         principalTable: "OrderHeaders",
                         principalColumn: "OrderHeaderId",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "MenuItems",
+                columns: new[] { "Id", "Category", "Description", "Image", "Name", "Price", "SpecialTag" },
+                values: new object[,]
+                {
+                    { 1, "Appetizer", "Fusc tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.", "https://i.ibb.co/VD0mnh6/spring-roll.jpg", "Spring Roll", 7.9900000000000002, "" },
+                    { 2, "Appetizer", "Fusc tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.", "https://i.ibb.co/p1mGFc7/idli.jpg", "Idli", 8.9900000000000002, "" },
+                    { 3, "Appetizer", "Fusc tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.", "https://i.ibb.co/w0GFSv4/pani-puri.jpg", "Pani Puri", 8.9900000000000002, "Best Seller" },
+                    { 4, "Entrée", "Fusc tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.", "https://i.ibb.co/f9DTQJG/hakka-noodles.jpg", "Hakka Noodles", 10.99, "" },
+                    { 5, "Entrée", "Fusc tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.", "https://i.ibb.co/8KT8FMw/malai-kofta.jpg", "Malai Kofta", 12.99, "Top Rated" },
+                    { 6, "Entrée", "Fusc tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.", "https://i.ibb.co/RBFPg7X/paneer-pizza.jpg", "Paneer Pizza", 11.99, "" },
+                    { 7, "Entrée", "Fusc tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.", "https://i.ibb.co/MsTsgw7/paneer-tikka.jpg", "Paneer Tikka", 13.99, "Chef's Special" },
+                    { 8, "Dessert", "Fusc tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.", "https://i.ibb.co/7QxL1r8/carrot-love.jpg", "Carrot Love", 4.9900000000000002, "" },
+                    { 9, "Dessert", "Fusc tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.", "https://i.ibb.co/w6KXHy4/rasmalai.jpg", "Rasmalai", 4.9900000000000002, "Chef's Special" },
+                    { 10, "Dessert", "Fusc tincidunt maximus leo, sed scelerisque massa auctor sit amet. Donec ex mauris, hendrerit quis nibh ac, efficitur fringilla enim.", "https://i.ibb.co/LZLKkZL/sweet-rolls.jpg", "Sweet Rolls", 3.9900000000000002, "Top Rated" }
                 });
 
             migrationBuilder.CreateIndex(
