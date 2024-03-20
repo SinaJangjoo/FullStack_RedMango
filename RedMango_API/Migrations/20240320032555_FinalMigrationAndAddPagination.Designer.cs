@@ -12,8 +12,8 @@ using RedMango_API.Data;
 namespace RedMango_API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240319191803_ChangeBothTypeofDtoAndModelFieldImage")]
-    partial class ChangeBothTypeofDtoAndModelFieldImage
+    [Migration("20240320032555_FinalMigrationAndAddPagination")]
+    partial class FinalMigrationAndAddPagination
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

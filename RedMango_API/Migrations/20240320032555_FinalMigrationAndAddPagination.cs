@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace RedMango_API.Migrations
 {
     /// <inheritdoc />
-    public partial class ChangeBothTypeofDtoAndModelFieldImage : Migration
+    public partial class FinalMigrationAndAddPagination : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

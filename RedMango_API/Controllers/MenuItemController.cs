@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RedMango_API.Data;
 using RedMango_API.Models;
@@ -53,6 +54,7 @@ namespace RedMango_API.Controllers
 			return Ok(_response);
 		}
 
+		[Authorize(Roles =SD.Role_Admin)]
 		[HttpPost]
 		public async Task<ActionResult<ApiResponse>> CreateMenuItem([FromForm] MenuItemCreateDTO menuItemCreateDTO) //We are using [FromForm] because we want to upload an image!
 		{
@@ -111,6 +113,7 @@ namespace RedMango_API.Controllers
 			}
 
 		}
+		[Authorize(Roles = SD.Role_Admin)]
 		[HttpPut("{id:int}")]
 		public async Task<ActionResult<ApiResponse>> UpdateMenuItem(int id, [FromForm] MenuItemUpdateDTO menuItemUpdateDTO)
 		{
@@ -181,6 +184,7 @@ namespace RedMango_API.Controllers
 			return _response;
 		}
 
+		[Authorize(Roles = SD.Role_Admin)]
 		[HttpDelete("{id:int}")]
 		public async Task<ActionResult<ApiResponse>> DeleteMenuItem(int id)
 		{
